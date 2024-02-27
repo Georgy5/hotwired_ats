@@ -25,7 +25,9 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Build real-time, reactive UIs [https://docs.stimulusreflex.com/]
-gem "stimulus_reflex", "= 3.5.0.rc3"
+gem "stimulus_reflex", "3.5.0.rc3"
+# Backports Action Cable 7.1 Redis adapter for older versions
+gem "action-cable-redis-backport", "~> 1"
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
@@ -35,6 +37,9 @@ gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
+
+#A simple session store for Rails based on Redis.
+gem "redis-session-store", "~> 0.11.5"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
