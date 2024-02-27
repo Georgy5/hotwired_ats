@@ -4,6 +4,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.3",
+    "stimulus": "npm:@hotwired/stimulus",
     "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.17",
     "esbuild": "@0.16.17",
