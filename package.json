@@ -9,6 +9,7 @@
     "esbuild": "@0.16.17",
     "postcss": "^8.4.35",
     "postcss-import": "^16.0.1",
+    "stimulus_reflex": "3.5.0-rc3",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {

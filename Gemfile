@@ -24,6 +24,9 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
+# Build real-time, reactive UIs [https://docs.stimulusreflex.com/]
+gem "stimulus_reflex", "= 3.5.0.rc3"
+
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
 
@@ -69,4 +72,3 @@ group :development do
   # Provide Ruby LSP to improve DX in VSCode 
   gem "ruby-lsp-rails"
 end
-
