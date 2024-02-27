@@ -169,6 +169,7 @@ GEM
     rake (13.1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
+    redis (4.8.1)
     reline (0.4.3)
       io-console (~> 0.5)
     ruby-lsp (0.14.3)
@@ -227,6 +228,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.8, >= 7.0.8.1)
+  redis (~> 4.0)
   ruby-lsp-rails
   sprockets-rails
   stimulus-rails
