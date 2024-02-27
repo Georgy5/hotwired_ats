@@ -7,7 +7,7 @@ Rails.application.configure do
     key: "_sessions_development",
     compress: true,
     pool_size: 5, 
-    expire_after: 1.year
+    expire_after: 1.year,
     serializer: :json,
     on_redis_down: ->(*a) { Rails.logger.error("Redis down! #{a.inspect}") },
     redis: {

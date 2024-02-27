@@ -2,7 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "./config"
-import "./channels"
 import consumer from "./channels/consumer"
 import CableReady from "cable_ready"
 import mrujs from "mrujs";
@@ -13,3 +12,5 @@ mrujs.start({
     new CableCar(CableReady)
   ]
 })
+
+CableReady.initialize({ consumer })
