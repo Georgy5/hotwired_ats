@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+#Ignire backup files
+.bak
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
