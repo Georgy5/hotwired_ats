@@ -8,7 +8,7 @@
 /.bundle
 
 #Ignire backup files
-.bak
+*.bak
 
 # Ignore all logfiles and tempfiles.
 /log/*
