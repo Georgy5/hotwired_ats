@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.references :account
+      t.references :account, foreign_key: true, type: :uuid
       t.string :first_name
       t.string :last_name
 
