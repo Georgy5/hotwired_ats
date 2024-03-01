@@ -3,18 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
 
   # config.session_store :redis_session_store, key: "_sessions_development", compress: true, pool_size: 5, expire_after: 1.year
-  config.session_store :redis_session_store,
-    key: "_sessions_development",
-    compress: true,
-    pool_size: 5, 
-    expire_after: 1.year,
-    serializer: :json,
-    on_redis_down: ->(*a) { Rails.logger.error("Redis down! #{a.inspect}") },
-    redis: {
-      expire_after: 120.minutes,
-      key_prefix: "session:",
-      url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" }
-    }
+  config.session_store :cache_store, key: "_sessions_development", compress: true, pool_size: 5, expire_after: 1.year
   config.action_controller.default_url_options = {host: "localhost", port: 3000}
   config.action_mailer.default_url_options = {host: "localhost", port: 3000}
 
