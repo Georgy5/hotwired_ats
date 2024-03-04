@@ -1,12 +1,6 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-
-  # config.session_store :redis_session_store, key: "_sessions_development", compress: true, pool_size: 5, expire_after: 1.year
-  config.session_store :cache_store, key: "_sessions_development", compress: true, pool_size: 5, expire_after: 1.year
-  config.action_controller.default_url_options = {host: "localhost", port: 3000}
-  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -41,8 +35,15 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # config.session_store :redis_session_store, key: "_sessions_development", compress: true, pool_size: 5, expire_after: 1.year
+  config.session_store :cache_store, key: "_sessions_development", compress: true, pool_size: 5, expire_after: 1.year
+  config.action_controller.default_url_options = {host: "localhost", port: 3000}
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
+
+  # Default URL options for the Devise mailer
+  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
