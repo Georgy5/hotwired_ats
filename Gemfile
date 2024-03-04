@@ -56,6 +56,9 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 
+# Embed SVG documents in your views and style them with CSS 
+gem "inline_svg", "~> 1.9"
+
 # Use Devise for user Authentification
 gem "devise", "~> 4.9"
 
