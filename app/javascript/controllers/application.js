@@ -1,14 +1,13 @@
 import { Application } from "@hotwired/stimulus"
-import consumer from "../channels/consumer"
+import StimulusReflex from 'stimulus_reflex'
 
 const application = Application.start()
 
 // Configure Stimulus development experience
 application.warnings = true
-application.debug = false
-application.consumer = consumer
-window.Stimulus   = application
+application.debug    = false
+window.Stimulus      = application
 
-StimulusReflex.initialize(application, { isolate: true })
+StimulusReflex.initialize(application, { isolate: true, debug: true })
 
 export { application }
