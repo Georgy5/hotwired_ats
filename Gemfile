@@ -80,6 +80,9 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
+  # Linters
+  gem 'rubocop'
+  gem 'rubocop-rails'
   # Provide Ruby LSP to improve DX in VSCode 
   gem "ruby-lsp-rails"
 end
