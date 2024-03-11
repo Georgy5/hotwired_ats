@@ -2,11 +2,12 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_controller.default_url_options = {host: "localhost", port: 3000}
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
-  config.cache_classes = false
+  config.enable_reloading = true
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -26,6 +27,16 @@ Rails.application.configure do
     config.cache_store = :redis_cache_store, {
       url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" }
     }
+
+    config.session_store :redis_session_store,
+      key: "_sessions_development",
+      on_redis_down: ->(*a) { Rails.logger.error("Redis down! #{a.inspect}") },
+      redis: {
+        expire_after: 120.minutes,
+        key_prefix: "session:",
+        url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" }
+    }
+
     config.public_file_server.headers = {
       "Cache-Control" => "public, max-age=#{2.days.to_i}"
     }
@@ -34,22 +45,6 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-
-  # config.session_store :redis_session_store, key: "_sessions_development", compress: true, pool_size: 5, expire_after: 1.year
-  config.session_store :cache_store, key: "_sessions_development", compress: true, pool_size: 5, expire_after: 1.year
-
-  # StimulusReflex does not support :cookie_store, and we recommend switching to Redis.
-  # To use `redis-session-store`, make sure to add it to your Gemfile and run `bundle install`.
-
-  # config.session_store :redis_session_store,
-  #   serializer: :json,
-  #   on_redis_down: ->(*a) { Rails.logger.error("Redis down! #{a.inspect}") },
-  #   redis: {
-  #     expire_after: 120.minutes,
-  #     key_prefix: "session:",
-  #     url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" }
-  # }
-  config.action_controller.default_url_options = {host: "localhost", port: 3000}
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
